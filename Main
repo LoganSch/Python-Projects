@@ -1,0 +1,57 @@
+from WinCheck import checkX, checkY
+
+turn = True
+turns = 0
+
+board = [["_", "_", "_"],
+         ["_", "_", "_"],
+         ["_", "_", "_"]]
+
+while checkX(board) is False and checkY(board) is False and turns < 9:
+    for i in range(0, 3):
+        for j in range(0, 3):
+            print(board[i][j], end=" ")
+        print()
+
+    print("Print the coordinates of where you want to play. (Top left would be \"00\")")
+    coordinates = input()
+    x = coordinates[0]
+    y = coordinates[1]
+
+    if turn is True:
+        if board[int(x)][int(y)] != "_":
+            while board[int(x)][int(y)] != "_":
+                print("A marker has already been placed there. Try again.")
+                coordinates = input()
+                x = coordinates[0]
+                y = coordinates[1]
+            board[int(x)][int(y)] = "X"
+            turn = False
+        else:
+            board[int(x)][int(y)] = "X"
+            turn = False
+    elif turn is False:
+        if board[int(x)][int(y)] != "_":
+            while board[int(x)][int(y)] != "_":
+                print("A marker has already been placed there. Try again.")
+                coordinates = input()
+                x = coordinates[0]
+                y = coordinates[1]
+            board[int(x)][int(y)] = "Y"
+            turn = True
+        else:
+            board[int(x)][int(y)] = "Y"
+            turn = True
+    turns += 1
+
+for i in range(0, 3):
+    for j in range(0, 3):
+        print(board[i][j], end=" ")
+    print()
+
+if checkX(board):
+    print("X WINS")
+elif checkY(board):
+    print("Y WINS")
+else:
+    print("NO WINNER")
