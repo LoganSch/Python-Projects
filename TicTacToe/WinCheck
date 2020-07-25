@@ -13,16 +13,16 @@ def checkX(board):
         return False
 
 
-def checkY(board):
+def checkO(board):
     for i in range(0, 3):
-        if board[i][0] == "Y" and board[i][1] == "Y" and board[i][2] == "Y":
+        if board[i][0] == "O" and board[i][1] == "O" and board[i][2] == "O":
             return True
     for j in range(0, 3):
-        if board[0][j] == "Y" and board[1][j] == "Y" and board[2][j] == "Y":
+        if board[0][j] == "O" and board[1][j] == "O" and board[2][j] == "O":
             return True
-    if board[0][0] == "Y" and board[1][1] == "Y" and board[2][2] == "Y":
+    if board[0][0] == "O" and board[1][1] == "O" and board[2][2] == "O":
         return True
-    if board[2][0] == "Y" and board[1][1] == "Y" and board[0][2] == "Y":
+    if board[2][0] == "O" and board[1][1] == "O" and board[0][2] == "O":
         return True
     else:
         return False
