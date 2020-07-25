@@ -1,4 +1,4 @@
-from WinCheck import checkX, checkY
+from WinCheck import checkX, checkO
 
 turn = True
 turns = 0
@@ -7,7 +7,7 @@ board = [["_", "_", "_"],
          ["_", "_", "_"],
          ["_", "_", "_"]]
 
-while checkX(board) is False and checkY(board) is False and turns < 9:
+while checkX(board) is False and checkO(board) is False and turns < 9:
     for i in range(0, 3):
         for j in range(0, 3):
             print(board[i][j], end=" ")
@@ -37,10 +37,10 @@ while checkX(board) is False and checkY(board) is False and turns < 9:
                 coordinates = input()
                 x = coordinates[0]
                 y = coordinates[1]
-            board[int(x)][int(y)] = "Y"
+            board[int(x)][int(y)] = "O"
             turn = True
         else:
-            board[int(x)][int(y)] = "Y"
+            board[int(x)][int(y)] = "O"
             turn = True
     turns += 1
 
@@ -51,7 +51,7 @@ for i in range(0, 3):
 
 if checkX(board):
     print("X WINS")
-elif checkY(board):
-    print("Y WINS")
+elif checkO(board):
+    print("O WINS")
 else:
     print("NO WINNER")
